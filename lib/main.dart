@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todolist/Screens/LoginPage.dart';
 
 void main() => runApp(MyApp());
 
@@ -9,34 +10,16 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       // Application name
-      title: 'Flutter Hello World',
+      title: 'TODOList',
       // Application theme data, you can set the colors for the application as
       // you want
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+          primarySwatch: Colors.blue,
+          scaffoldBackgroundColor: Colors.blue[50],
+          textTheme: Theme.of(context).textTheme.apply(
+              bodyColor: Colors.blue[700], displayColor: Colors.blue[600])),
       // A widget which will be started on application startup
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  final String title;
-  const MyHomePage({super.key, required this.title});  
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        // The title text which will be shown on the action bar
-        title: Text(title),
-      ),
-      body: Center(
-        child: Text(
-          'Hello, World!',
-        ),
-      ),
+      home: const LoginPage(),
     );
   }
 }
