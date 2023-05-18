@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:todolist/Screens/RegisterPage.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class RegisterPage extends StatefulWidget {
+  const RegisterPage({super.key});
 
   @override
-  State<StatefulWidget> createState() => LoginPageState();
+  State<StatefulWidget> createState() => RegisterPageState();
 }
 
-class LoginPageState extends State<LoginPage> {
+class RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,12 +20,21 @@ class LoginPageState extends State<LoginPage> {
             color: Colors.blue[700],
           ),
           Center(
-            child: Text("Login",
+            child: Text("Register",
                 style: TextStyle(
                   fontSize: 30,
                   fontFamily: 'Segoe UI',
                 )),
           ), //LOGIN
+          Padding(
+            padding: const EdgeInsets.fromLTRB(10, 5, 10, 5),
+            child: TextField(
+              decoration: InputDecoration(
+                labelText: "Your name",
+                border: OutlineInputBorder(),
+              ),
+            ),
+          ), //NAME
           Padding(
             padding: const EdgeInsets.fromLTRB(10, 5, 10, 5),
             child: TextField(
@@ -53,36 +61,14 @@ class LoginPageState extends State<LoginPage> {
               height: 45,
               child: ElevatedButton(
                 onPressed: () {},
-                child: Text(
-                  "Login",
-                  style: TextStyle(
-                    fontFamily: "Segoe UI",
-                    fontSize: 22,
-                  ),
-                ),
+                child: Text("Register",
+                    style: TextStyle(
+                      fontFamily: "Segoe UI",
+                      fontSize: 22,
+                    )),
               ),
             ),
-          ), //BUTTON_LOGIN
-          Padding(
-            padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
-            child: SizedBox(
-              width: 150,
-              height: 45,
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => RegisterPage()));
-                },
-                child: Text(
-                  "Register",
-                  style: TextStyle(
-                    fontFamily: "Segoe UI",
-                    fontSize: 22,
-                  ),
-                ),
-              ),
-            ),
-          ), //BUTTON_LOGIN
+          ) //BUTTON_LOGIN
         ],
       ),
     );
