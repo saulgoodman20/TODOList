@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:todolist/Model/usermanager.dart';
 import 'package:todolist/Screens/RegisterPage.dart';
+
+import '../Model/user.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -32,6 +35,7 @@ class LoginPageState extends State<LoginPage> {
           Padding(
             padding: const EdgeInsets.fromLTRB(10, 5, 10, 5),
             child: TextField(
+              controller: login,
               decoration: InputDecoration(
                 labelText: "Login",
                 border: OutlineInputBorder(),
@@ -41,6 +45,7 @@ class LoginPageState extends State<LoginPage> {
           Padding(
             padding: const EdgeInsets.fromLTRB(10, 5, 10, 5),
             child: TextField(
+              controller: password,
               obscureText: true,
               decoration: InputDecoration(
                 labelText: "Password",
@@ -54,7 +59,21 @@ class LoginPageState extends State<LoginPage> {
               width: 150,
               height: 45,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  User user = UserManager.findUser(login.text, password.text);
+                  if (user.id == "") {
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                      content: Text("Login or password is incorrect"),
+                      duration: const Duration(seconds: 1),
+                    ));
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                      content:
+                          Text("Successfully logged in!\nWitaj ${user.name}"),
+                      duration: const Duration(seconds: 1),
+                    ));
+                  }
+                },
                 child: Text(
                   "Login",
                   style: TextStyle(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:todolist/Model/usermanager.dart';
 
 import '../Model/user.dart';
+import 'LoginPage.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -85,9 +86,19 @@ class RegisterPageState extends State<RegisterPage> {
                   if (passwordController.text == passwordController2.text) {
                     addUser(nameController.text, loginController.text,
                         passwordController.text);
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text("Registered successfully!"),
+                        duration: const Duration(seconds: 1),
+                      ),
+                    );
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => LoginPage()));
                   } else {
                     ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text("Passwords don't match.")),
+                      SnackBar(
+                        content: Text("Passwords don't match."),
+                      ),
                     );
                   }
                 },
