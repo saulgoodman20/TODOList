@@ -13,6 +13,12 @@ class ToDoState extends State<ToDoPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            createNewTask();
+          },
+          child: Icon(Icons.add),
+        ),
         appBar: AppBar(title: Text("Witaj, ${UserManager.loggedUser!.login}")),
         body: ListView(
           children: [
@@ -23,6 +29,35 @@ class ToDoState extends State<ToDoPage> {
             ToDoTile(),
           ],
         ));
+  }
+
+  void createNewTask() {
+    showDialog(
+      builder: (context) {
+        return AlertDialog(
+          content: Container(
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: TextField(
+                    decoration: InputDecoration(border: OutlineInputBorder()),
+                  ),
+                ),
+                SizedBox(
+                  height: 140,
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    child: Text("Zapisz"),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+      context: context,
+    );
   }
 }
 
