@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todolist/Screens/LoginPage.dart';
+import 'package:todolist/Screens/RegisterPage.dart';
+import 'package:todolist/Screens/ToDoPage.dart';
 
 void main() => runApp(MyApp());
 
@@ -19,7 +21,7 @@ class MyApp extends StatelessWidget {
           textTheme: Theme.of(context).textTheme.apply(
               bodyColor: Colors.blue[700], displayColor: Colors.blue[600])),
       // A widget which will be started on application startup
-      home: const LoginPage(),
+      home: const RegisterPage(),
     );
   }
 }

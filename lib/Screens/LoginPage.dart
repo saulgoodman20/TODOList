@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todolist/Model/usermanager.dart';
 import 'package:todolist/Screens/RegisterPage.dart';
+import 'package:todolist/Screens/ToDoPage.dart';
 
 import '../Model/user.dart';
 
@@ -72,6 +73,8 @@ class LoginPageState extends State<LoginPage> {
                           Text("Successfully logged in!\nWitaj ${user.name}"),
                       duration: const Duration(seconds: 1),
                     ));
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => ToDoPage()));
                   }
                 },
                 child: Text(
